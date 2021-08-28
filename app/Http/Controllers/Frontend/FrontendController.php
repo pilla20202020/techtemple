@@ -27,15 +27,22 @@ class FrontendController extends Controller
 
     public function homepage()
     {
-        $dow = $this->currency->where('type','dow')->latest()->first();
-        $nasdaq = $this->currency->where('type','nasdaq')->latest()->first();
-        $ftse = $this->currency->where('type','ftse')->latest()->first();
-        $usd = $this->currency->where('type','usd')->latest()->first();
-        $euro = $this->currency->where('type','euro')->latest()->first();
-        $gold = $this->currency->where('type','gold')->latest()->first();
+        $conversionvalue = [];
+
+        $url = "https://api.fastforex.io/fetch-all?api_key=6a4dd475f3-19749f3e78-qyk3dl";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        $response = curl_exec($ch);
+        $arr_result = json_decode($response);
+
+        foreach($arr_result->results as $key => $data) {
+
+            $conversionvalue[$key] = $data;
+        }
 
         $content = $this->content->latest()->first();
-        return view('frontend.home', compact('dow','gold','nasdaq','ftse','usd','euro','content'));
+        return view('frontend.home', compact('conversionvalue','content'));
     }
 
     public function sendcontact(Request $request)
@@ -44,5 +51,7 @@ class FrontendController extends Controller
             return redirect()->back()->withSuccess(trans('Detail Send Successfully'));
         }
     }
+
+
 
 }

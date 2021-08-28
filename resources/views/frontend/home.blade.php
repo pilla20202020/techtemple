@@ -13,32 +13,34 @@
             <div class="heading-box">
                 <h2 class="heading-h2">LEARN TO TRADE WITH THE AWESOME DECAGON ALGORITHM INITIAL FREE PROOF
                     TRIAL,TRADING,CONSULTANCY,COURSES</h2>
+                    <h2 class="heading-h2">USD TO OTHER CURRENCY</h2>
             </div>
             <ul class="live-pricing mb-3">
                 <div class="li">
                     <li>
-                        Dow
-                        <h6>@if($dow) {{$dow->value}} @endif</h6>
+                        NPR
+                        <h6>{{$conversionvalue['NPR']}}</h6>
                     </li>
                     <li>
-                        Nasdaq
-                        <h6>@if($nasdaq){{$nasdaq->value}}@endif</h6>
+                        NZD
+                        <h6>{{$conversionvalue['NZD']}}</h6>
                     </li>
                     <li>
-                        Ftse
-                        <h6>@if($ftse) {{$ftse->value}} @endif</h6>
+                        INR
+                        <h6>{{$conversionvalue['INR']}}</h6>
                     </li>
                     <li>
                         Usd
-                        <h6>@if($usd) {{$usd->value}} @endif</h6>
+                        <h6>{{$conversionvalue['USD']}}</h6>
                     </li>
                     <li>
                         Euro
-                        <h6>@if($euro) {{$euro->value}} @endif</h6>
+                        <h6>{{$conversionvalue['EUR']}}</h6>
                     </li>
                     <li>
-                        Gold
-                        <h6>@if($gold) {{$gold->value}} @endif</h6>
+                        AUD
+                        <h6>{{$conversionvalue['AUD']}}</h6>
+
                     </li>
                 </div>
             </ul>
@@ -99,6 +101,16 @@
 
     </div>
 
+    {{-- Conversion API --}}
+        {{-- // $url = "https://api.fastforex.io/fetch-all?api_key=6a4dd475f3-19749f3e78-qyk3dl";
+        // $ch = curl_init();
+        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        // curl_setopt($ch, CURLOPT_URL, $url);
+        // $response = curl_exec($ch);
+        // $arr_result = json_decode($response);
+        // echo "<pre>";print_r($arr_result);echo "</pre>"; --}}
+    {{-- Conversion API --}}
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -138,10 +150,10 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Send Mail</button>
-                        </div>  
+                        </div>
                     </form>
                 </div>
-                
+
             </div>
         </div>
     </div>
