@@ -18,8 +18,8 @@
             <ul class="live-pricing mb-3">
                 <div class="li">
                     <li>
-                        NPR
-                        <h6>{{$conversionvalue['NPR']}}</h6>
+                        DOW
+                        <h6>{{$dow['close']}}</h6>
                     </li>
                     <li>
                         NZD
@@ -38,8 +38,8 @@
                         <h6>{{$conversionvalue['EUR']}}</h6>
                     </li>
                     <li>
-                        AUD
-                        <h6>{{$conversionvalue['AUD']}}</h6>
+                        GOLD
+                        <h6>{{$gold['close']}}</h6>
 
                     </li>
                 </div>
